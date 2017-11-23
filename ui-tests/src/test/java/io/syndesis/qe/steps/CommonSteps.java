@@ -232,9 +232,15 @@ public class CommonSteps {
 	@And("^she selects \"([^\"]*)\" from \"([^\"]*)\" dropdown$")
 	public void selectsFromDropdown(String option, String selectId) throws Throwable {
 		SelenideElement selectElement = $(String.format("select[id=\"%s\"]", selectId)).shouldBe(visible);
-		selectElement.findAll(By.tagName("option"))
-				.filter(matchesText(option))
-				.shouldHaveSize(1).first()
-				.shouldBe(visible).click();
+		ElementsCollection options = selectElement.findAll(By.tagName("option"));
+		
+		for (SelenideElement optionElement : options) {
+			String text = optionElement.shouldBe(visible).getText();
+			if (text.equals(option)) {
+				optionElement.click();
+				break;
+			}
+		}
+				
 	}
 }
