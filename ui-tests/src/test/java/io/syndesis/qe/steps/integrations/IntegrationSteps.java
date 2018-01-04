@@ -333,7 +333,7 @@ public class IntegrationSteps {
 	}
 
 	@And("^sets jms subscribe inputs source data$")
-	public void setJmsSubscribeData(DataTable sourceMappingData) {
+	public void setJmsSubscribeData(DataTable sourceMappingData) throws IllegalArgumentException, IllegalAccessException {
 		for (Map<String, String> source : sourceMappingData.asMaps(String.class, String.class)) {
 			for (String field : source.keySet()) {
 				String tagType = editPage.getJmsSubscribeComponent().checkAndGetFieldType(field);
@@ -343,17 +343,17 @@ public class IntegrationSteps {
 	}
 
 	@And("^sets jms request inputs source data$")
-	public void setJmsRequestData(DataTable sourceMappingData) {
+	public void setJmsRequestData(DataTable sourceMappingData) throws IllegalArgumentException, IllegalAccessException {
 		for (Map<String, String> source : sourceMappingData.asMaps(String.class, String.class)) {
 			for (String field : source.keySet()) {
-				String tagType = editPage.getJmsSubscribeComponent().checkAndGetFieldType(field);
-				editPage.getJmsSubscribeComponent().fillInput(field, source.get(field), tagType);
+				String tagType = editPage.getJmsRequestComponent().checkAndGetFieldType(field);
+				editPage.getJmsRequestComponent().fillInput(field, source.get(field), tagType);
 			}
 		}
 	}
 
 	@And("^sets jms publish inputs source data$")
-	public void setJmsPublishData(DataTable sourceMappingData) {
+	public void setJmsPublishData(DataTable sourceMappingData) throws IllegalArgumentException, IllegalAccessException {
 		for (Map<String, String> source : sourceMappingData.asMaps(String.class, String.class)) {
 			for (String field : source.keySet()) {
 				String tagType = editPage.getJmsPublishComponent().checkAndGetFieldType(field);

@@ -5,5 +5,5 @@ package io.syndesis.qe.pages;
  */
 public interface MultipleInputs {
 
-	public String checkAndGetFieldType(String field);
+	public String checkAndGetFieldType(String field) throws IllegalArgumentException, IllegalAccessException;
 }

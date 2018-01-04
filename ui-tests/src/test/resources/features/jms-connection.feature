@@ -12,15 +12,15 @@ Feature: Test functionality of DB connection
   Scenario: Create amq connection
     When "Camilla" navigates to the "Connections" page
     And clicks on the "Create Connection" button
-    And Camilla selects the "ActiveMQ" connection
+    And Camilla selects the "AMQ" connection
   # fill salesforce connection details:
     Then Camilla is presented with the Syndesis page "ActiveMQ Configuration"
     Then she is presented with the "Validate" button
     And she fills "Active MQ" connection details
-    Then click on the "Validate" button
-    Then she can see "Active MQ has been successfully validated" in alert-success notification
+    #Then click on the "Validate" button
+    #Then she can see "Active MQ has been successfully validated" in alert-success notification
     And click on the "Next" button
-    Then Camilla is presented with the Syndesis page "Add Connection Details"
+    Then Camilla is presented with the Syndesis page "Connection Detail"
     And type "Active MQ" into connection name
     And type "Active MQ connection is awesome" into connection description
     And click on the "Create" button
@@ -39,7 +39,7 @@ Feature: Test functionality of DB connection
     # select connection as 'start' point
     And she is prompted to select a "Start" connection from a list of available connections
     When Camilla selects the "Active MQ" connection
-    Then Camilla is presented with the Syndesis page "Active MQ - Choose an Action"
+    #Then Camilla is presented with the Syndesis page "Active MQ - Choose an Action"
     And she selects "Subscribe for Messages" integration action
     And sets jms subscribe inputs source data
       | destinationName | destinationType | durable | destinationSubscriptionId | messageSelector |

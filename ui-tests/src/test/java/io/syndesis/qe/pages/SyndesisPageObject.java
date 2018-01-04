@@ -16,6 +16,7 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 
+import java.lang.reflect.Field;
 import java.util.Map;
 
 import lombok.extern.slf4j.Slf4j;
@@ -214,5 +215,15 @@ public abstract class SyndesisPageObject {
 				break;
 		}
 		return condition;
+	}
+
+	public boolean isContainedInLocators(By by, Field[] fields) throws IllegalArgumentException, IllegalAccessException {
+		for (Field field : fields) {
+			if (by.equals(field.get(null))) {
+				log.info("CONTAINED " + field.getName() + " - " + field.getType());
+				return true;
+			}
+		}
+		return false;
 	}
 }
