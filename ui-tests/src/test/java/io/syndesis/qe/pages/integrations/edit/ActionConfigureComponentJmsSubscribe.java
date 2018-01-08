@@ -2,8 +2,6 @@ package io.syndesis.qe.pages.integrations.edit;
 
 import static com.codeborne.selenide.Condition.visible;
 
-import java.lang.reflect.Field;
-
 import org.openqa.selenium.By;
 
 /**
@@ -33,14 +31,12 @@ public class ActionConfigureComponentJmsSubscribe extends ActionConfigureCompone
 	}
 
 	@Override
-	public Field[] getInputFields() {
-		Class<Input> c = ActionConfigureComponentJmsSubscribe.Input.class;
-		return c.getDeclaredFields();
+	public Class getInputClass() {
+		return ActionConfigureComponentJmsSubscribe.Input.class;
 	}
 
 	@Override
-	public Field[] getSelectFields() {
-		Class<Select> c = ActionConfigureComponentJmsSubscribe.Select.class;
-		return c.getDeclaredFields();
+	public Class getSelectClass() {
+		return ActionConfigureComponentJmsSubscribe.Select.class;
 	}
 }

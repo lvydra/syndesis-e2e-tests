@@ -1,23 +1,20 @@
 package io.syndesis.qe.pages;
 
-import static org.junit.Assert.assertThat;
-
-import static org.hamcrest.Matchers.is;
-
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.disabled;
 import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
+
+import java.util.Map;
 
 import org.openqa.selenium.By;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
-
-import java.lang.reflect.Field;
-import java.util.Map;
 
 import lombok.extern.slf4j.Slf4j;
 

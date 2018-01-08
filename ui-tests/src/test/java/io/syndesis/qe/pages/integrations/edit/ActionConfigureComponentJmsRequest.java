@@ -2,8 +2,6 @@ package io.syndesis.qe.pages.integrations.edit;
 
 import static com.codeborne.selenide.Condition.visible;
 
-import java.lang.reflect.Field;
-
 import org.openqa.selenium.By;
 
 import lombok.extern.slf4j.Slf4j;
@@ -36,14 +34,12 @@ public class ActionConfigureComponentJmsRequest extends ActionConfigureComponent
 	}
 
 	@Override
-	public Field[] getInputFields() {
-		Class<Input> c = ActionConfigureComponentJmsRequest.Input.class;
-		return c.getDeclaredFields();
+	public Class getInputClass() {
+		return ActionConfigureComponentJmsRequest.Input.class;
 	}
 
 	@Override
-	public Field[] getSelectFields() {
-		Class<Select> c = ActionConfigureComponentJmsRequest.Select.class;
-		return c.getDeclaredFields();
+	public Class getSelectClass() {
+		return ActionConfigureComponentJmsRequest.Select.class;
 	}
 }
