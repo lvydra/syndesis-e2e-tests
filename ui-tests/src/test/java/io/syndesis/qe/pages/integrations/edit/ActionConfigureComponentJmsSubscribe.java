@@ -34,13 +34,13 @@ public class ActionConfigureComponentJmsSubscribe extends ActionConfigureCompone
 
 	@Override
 	public Field[] getInputFields() {
-		Class<Input> c = Input.class;
+		Class<Input> c = ActionConfigureComponentJmsSubscribe.Input.class;
 		return c.getDeclaredFields();
 	}
 
 	@Override
 	public Field[] getSelectFields() {
-		Class<Select> c = Select.class;
+		Class<Select> c = ActionConfigureComponentJmsSubscribe.Select.class;
 		return c.getDeclaredFields();
 	}
 }

@@ -35,13 +35,13 @@ public class ActionConfigureComponentJmsPublish extends ActionConfigureComponent
 
 	@Override
 	public Field[] getInputFields() {
-		Class<Input> c = Input.class;
+		Class<Input> c = ActionConfigureComponentJmsPublish.Input.class;
 		return c.getDeclaredFields();
 	}
 
 	@Override
 	public Field[] getSelectFields() {
-		Class<Select> c = Select.class;
+		Class<Select> c = ActionConfigureComponentJmsPublish.Select.class;
 		return c.getDeclaredFields();
 	}
 

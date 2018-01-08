@@ -29,4 +29,14 @@ public abstract class ActionConfigureComponentJms extends ActionConfigureCompone
 	abstract Field[] getInputFields();
 	
 	abstract Field[] getSelectFields();
+	
+	public boolean isContainedInLocators(By by, Field[] fields) throws IllegalArgumentException, IllegalAccessException {
+		for (Field field : fields) {
+			if (by.equals(field.get(null))) {
+				log.info("CONTAINED " + field.getName() + " - " + field.getType());
+				return true;
+			}
+		}
+		return false;
+	}
 }

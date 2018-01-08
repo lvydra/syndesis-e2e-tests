@@ -37,13 +37,13 @@ public class ActionConfigureComponentJmsRequest extends ActionConfigureComponent
 
 	@Override
 	public Field[] getInputFields() {
-		Class<Input> c = Input.class;
+		Class<Input> c = ActionConfigureComponentJmsRequest.Input.class;
 		return c.getDeclaredFields();
 	}
 
 	@Override
 	public Field[] getSelectFields() {
-		Class<Select> c = Select.class;
+		Class<Select> c = ActionConfigureComponentJmsRequest.Select.class;
 		return c.getDeclaredFields();
 	}
 }
