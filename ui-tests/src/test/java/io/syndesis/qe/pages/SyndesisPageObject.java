@@ -165,14 +165,13 @@ public abstract class SyndesisPageObject {
 		element.shouldBe(visible).sendKeys(value);
 	}
 
-	public void fillInput(String fieldId, String value, String tagType) {
-		switch (tagType) {
-			case "input":
-				fillInput(fieldId, value);
-				break;
-			case "select":
-				selectFromDropDown(fieldId, value);
-				break;
+	public void setElementValue(String value, SelenideElement element) {
+		if (element.getTagName().equals("input") && element.getAttribute("type").equals("text")) {
+			fillInput(element, value);
+		} else if (element.getTagName().equals("input") && element.getAttribute("type").equals("checkbox")) {
+			element.setSelected(Boolean.valueOf(value));
+		} else if (element.getTagName().equals("select")) {
+			element.selectOption(value);
 		}
 	}
 

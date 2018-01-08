@@ -6,27 +6,27 @@ import java.lang.reflect.Field;
 
 import org.openqa.selenium.By;
 
-import io.syndesis.qe.pages.MultipleInputs;
+import com.codeborne.selenide.SelenideElement;
+
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public abstract class ActionConfigureComponentJms extends ActionConfigureComponent implements MultipleInputs {
+public abstract class ActionConfigureComponentJms extends ActionConfigureComponent {
 
 	abstract Class getInputClass();
 
 	abstract Class getSelectClass();
 
-	@Override
-	public String checkAndGetFieldType(String element) throws IllegalArgumentException, IllegalAccessException {
-		log.info("field: {} is being checked", element);
-		By elem = By.id(element);
+	public SelenideElement checkAndGetFieldType(String elementId) throws IllegalArgumentException, IllegalAccessException {
+		log.info("field: {} is being checked", elementId);
+		By elem = By.id(elementId);
 		
 		Class inputFields = getInputClass();
 		Class selectFields = getSelectClass();
 
-		String tagName = this.getRootElement().find(elem).shouldBe(visible).getTagName();
-		if ("input".equals(tagName) && isContainedInLocators(elem, inputFields) || "select".equals(tagName) && isContainedInLocators(elem, selectFields)) {
-			return tagName;
+		SelenideElement element = this.getRootElement().find(elem).shouldBe(visible);
+		if (element.getTagName().equals("input") && isContainedInLocators(elem, inputFields) || element.getTagName().equals("select") && isContainedInLocators(elem, selectFields)) {
+			return element;
 		} else {
 			throw new RuntimeException("This field id does not belong to this page!");
 		}

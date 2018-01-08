@@ -336,8 +336,8 @@ public class IntegrationSteps {
 	public void setJmsSubscribeData(DataTable sourceMappingData) throws IllegalArgumentException, IllegalAccessException {
 		for (Map<String, String> source : sourceMappingData.asMaps(String.class, String.class)) {
 			for (String field : source.keySet()) {
-				String tagType = editPage.getJmsSubscribeComponent().checkAndGetFieldType(field);
-				editPage.getJmsSubscribeComponent().fillInput(field, source.get(field), tagType);
+				SelenideElement element = editPage.getJmsSubscribeComponent().checkAndGetFieldType(field);
+				editPage.getJmsSubscribeComponent().setElementValue(source.get(field), element);
 			}
 		}
 	}
@@ -346,8 +346,8 @@ public class IntegrationSteps {
 	public void setJmsRequestData(DataTable sourceMappingData) throws IllegalArgumentException, IllegalAccessException {
 		for (Map<String, String> source : sourceMappingData.asMaps(String.class, String.class)) {
 			for (String field : source.keySet()) {
-				String tagType = editPage.getJmsRequestComponent().checkAndGetFieldType(field);
-				editPage.getJmsRequestComponent().fillInput(field, source.get(field), tagType);
+				SelenideElement element = editPage.getJmsRequestComponent().checkAndGetFieldType(field);
+				editPage.getJmsRequestComponent().setElementValue(source.get(field), element);
 			}
 		}
 	}
@@ -356,8 +356,8 @@ public class IntegrationSteps {
 	public void setJmsPublishData(DataTable sourceMappingData) throws IllegalArgumentException, IllegalAccessException {
 		for (Map<String, String> source : sourceMappingData.asMaps(String.class, String.class)) {
 			for (String field : source.keySet()) {
-				String tagType = editPage.getJmsPublishComponent().checkAndGetFieldType(field);
-				editPage.getJmsPublishComponent().fillInput(field, source.get(field), tagType);
+				SelenideElement element = editPage.getJmsPublishComponent().checkAndGetFieldType(field);
+				editPage.getJmsPublishComponent().setElementValue(source.get(field), element);
 			}
 		}
 	}

@@ -20,7 +20,7 @@ public class ActionConfigureComponentJmsSubscribe extends ActionConfigureCompone
 		public static final By SUBCRIPTION_ID = By.id("destinationSubscriptionId");
 		public static final By MESSAGE_SELECTOR = By.id("messageSelector");
 	}
-	
+
 	private static final class Select {
 		public static final By DESTINATION_TYPE = By.id("destinationType");
 	}
